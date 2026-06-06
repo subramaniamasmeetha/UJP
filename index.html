@@ -1,751 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SFU Undergraduate Journal of Psychology</title>
-  
-  <!-- Poppins Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --sfu-red: #CC0633;
-      --sfu-dark-red: #A6192E;
-      --text-main: #212529;
-      --text-muted: #495057;
-      --text-light: #6C757D;
-      --hero-bg: linear-gradient(135deg, #FFF0F0 0%, #F4F7FF 100%);
-      --border-color: #E9ECEF;
-      --card-bg: #FFFFFF;
-      --transition: all 0.3s ease;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OJS User Guide – Professional Training Manual</title>
+<!-- Poppins font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  body {
+    background: #eef2f5;
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    padding: 40px 20px;
+    line-height: 1.5;
+    color: #1f2f3e;
+  }
 
+  .document {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+
+  .header {
+    background: #003b5c;
+    color: white;
+    padding: 32px 40px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+  }
+  .header p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-top: 4px;
+  }
+  .version {
+    margin-top: 16px;
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    display: inline-block;
+    padding-top: 10px;
+  }
+
+  .toc {
+    background: #f9fbfd;
+    margin: 30px 40px;
+    padding: 20px 30px;
+    border-radius: 20px;
+    border: 1px solid #e2edf2;
+  }
+  .toc h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #003b5c;
+    margin-bottom: 14px;
+    border-left: 5px solid #2b7de9;
+    padding-left: 16px;
+  }
+  .toc ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+    padding-left: 0;
+  }
+  .toc li {
+    background: #eef2f7;
+    padding: 6px 18px;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #003b5c;
+  }
+
+  .content {
+    padding: 0 40px 40px 40px;
+  }
+
+  .section-heading {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #003b5c;
+    margin: 40px 0 16px 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #c0d4e4;
+  }
+  .section-heading:first-of-type {
+    margin-top: 0;
+  }
+
+  .purpose {
+    background: #f4f9fe;
+    padding: 12px 20px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-left: 4px solid #2b7de9;
+    color: #1e4663;
+  }
+
+  .step {
+    background: white;
+    border: 2px solid #dce8f0;
+    border-radius: 20px;
+    padding: 22px 26px;
+    margin: 28px 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .step:hover {
+    border-color: #b0c8da;
+  }
+
+  .step-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #003b5c;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-left: 4px solid #2b7de9;
+    padding-left: 14px;
+  }
+  .step-number {
+    background: #e7f0f9;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 34px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a6c9e;
+  }
+
+  /* Screenshot container with coloured background */
+  .img-container {
+    margin: 18px 0;
+    text-align: center;
+    background: #f0f4fa;   /* soft blue-gray background */
+    border-radius: 14px;
+    padding: 12px;
+    border: 1px solid #dce5ec;
+  }
+  .img-container img {
+    max-width: 100%;
+    max-height: 420px;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    object-fit: contain;
+    background: white; /* ensures image itself stays clean */
+  }
+
+  .note {
+    background: #fff6e8;
+    border-left: 5px solid #e68a2e;
+    padding: 12px 18px;
+    margin-top: 18px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+  }
+  .tip {
+    background: #eef4fc;
+    border-left: 5px solid #2b7de9;
+    padding: 12px 18px;
+    margin-top: 18px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+  }
+
+  .trouble-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 30px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .trouble-table th {
+    background: #eef2f7;
+    color: #003b5c;
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+    border: 1px solid #dce5ec;
+  }
+  .trouble-table td {
+    border: 1px solid #dee7ef;
+    padding: 10px 16px;
+    background: white;
+  }
+
+  .support-list {
+    list-style: none;
+    background: #fafdff;
+    padding: 18px 24px;
+    border-radius: 18px;
+    border: 1px solid #e2edf2;
+    margin: 16px 0;
+  }
+  .support-list li {
+    margin: 12px 0;
+  }
+  .support-list strong {
+    color: #003b5c;
+    width: 130px;
+    display: inline-block;
+  }
+
+  hr {
+    margin: 30px 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, #cbdde9, transparent);
+  }
+
+  @media (max-width: 700px) {
+    .content {
+      padding: 0 20px 30px 20px;
+    }
+    .toc {
+      margin: 20px 20px;
+    }
+    .step {
+      padding: 18px;
+    }
+    .step-title {
+      font-size: 1.2rem;
+    }
+    .section-heading {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media print {
     body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-main);
-      background-color: #FAFAFC;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      background: white;
+      padding: 0;
     }
+    .document {
+      box-shadow: none;
+      border-radius: 0;
+    }
+    .step {
+      break-inside: avoid;
+      border: 1px solid #aaa;
+    }
+    .img-container {
+      background: #f0f0f0;
+    }
+  }/* Fix video zoom / cropping */
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;      /* ensures full video is visible without cropping */
+  background: #00000008;    /* subtle background for letterboxing */
+  border-radius: 20px;
+  display: block;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* HEADER */
-    header {
-      background-color: #FFFFFF;
-      border-bottom: 1px solid var(--border-color);
-      padding: 20px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .brand-section {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .logo-circle {
-      background-color: var(--sfu-dark-red);
-      color: #FFFFFF;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: 1px;
-    }
-
-    .brand-text h1 {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-main);
-      margin-bottom: 2px;
-    }
-
-    .brand-text p {
-      font-size: 13px;
-      color: var(--text-light);
-      font-weight: 400;
-    }
-
-    nav {
-      display: flex;
-      gap: 28px;
-    }
-
-    nav a {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-main);
-      transition: var(--transition);
-    }
-
-    nav a:hover, nav a.active {
-      color: var(--sfu-red);
-    }
-
-    /* HERO SECTION */
-    .hero {
-      background: var(--hero-bg);
-      padding: 100px 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .hero-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: #3B5B8A;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 24px;
-      display: block;
-    }
-
-    .hero h2 {
-      font-size: 54px;
-      font-weight: 700;
-      line-height: 1.15;
-      color: var(--text-main);
-      margin-bottom: 24px;
-      letter-spacing: -1px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: var(--text-muted);
-      max-width: 650px;
-      margin-bottom: 40px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 32px;
-      font-size: 15px;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: var(--transition);
-      cursor: pointer;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background-color: var(--text-main);
-      color: #FFFFFF;
-    }
-
-    .btn-primary:hover {
-      background-color: #000000;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-
-    /* DOWNLOAD BUTTONS */
-    .btn-download {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--sfu-red);
-      background-color: rgba(204, 6, 51, 0.08);
-      border: 1px solid rgba(204, 6, 51, 0.2);
-      border-radius: 6px;
-      transition: var(--transition);
-    }
-
-    .btn-download:hover {
-      background-color: var(--sfu-red);
-      color: #FFFFFF;
-      border-color: var(--sfu-red);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(204, 6, 51, 0.2);
-    }
-
-    .btn-download svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    /* MAIN CONTENT SECTIONS */
-    .section {
-      padding: 80px 0;
-    }
-
-    .section-title {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 40px;
-      color: var(--text-main);
-      letter-spacing: -0.5px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 32px;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 40px;
-      transition: var(--transition);
-    }
-
-    .card:hover {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-      border-color: #D1D5DB;
-    }
-
-    .card h3 {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      margin-bottom: 20px;
-      font-size: 15px;
-    }
-
-    /* FORMS & DOCUMENTS STYLING */
-    .doc-list {
-      list-style: none;
-    }
-
-    .doc-list li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px;
-      background: #F8F9FA;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      margin-bottom: 12px;
-      transition: var(--transition);
-    }
-
-    .doc-list li:hover {
-      border-color: #CED4DA;
-      background: #FFFFFF;
-    }
-
-    .doc-info strong {
-      display: block;
-      font-size: 15px;
-      color: var(--text-main);
-    }
-
-    .doc-info span {
-      font-size: 13px;
-      color: var(--text-light);
-    }
-
-    /* ACCORDION FOR ROLES */
-    details {
-      background: #FFFFFF;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      margin-bottom: 16px;
-      overflow: hidden;
-    }
-
-    summary {
-      padding: 20px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: '+';
-      font-size: 20px;
-      color: var(--text-light);
-      transition: var(--transition);
-    }
-
-    details[open] summary::after {
-      content: '−';
-      color: var(--sfu-red);
-    }
-
-    .details-content {
-      padding: 0 20px 20px 20px;
-      font-size: 15px;
-      color: var(--text-muted);
-    }
-
-    .details-content ul {
-      margin-left: 20px;
-      margin-top: 10px;
-    }
-
-    .details-content li {
-      margin-bottom: 8px;
-    }
-
-    /* FOOTER */
-    footer {
-      background-color: var(--text-main);
-      color: #FFFFFF;
-      padding: 60px 0;
-      text-align: center;
-    }
-
-    .footer-text {
-      color: #ADB5BD;
-      font-size: 14px;
-      margin-top: 16px;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .header-content {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-      }
-      .brand-section {
-        flex-direction: column;
-      }
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .hero {
-        padding: 60px 0;
-        text-align: center;
-      }
-      .hero h2 {
-        font-size: 40px;
-      }
-      .hero p {
-        margin: 0 auto 30px auto;
-      }
-      .doc-list li {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      .btn-download {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-  
-    /* DEADLINE BADGE & AWARDS */
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .btn-deadline {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 24px;
-      font-size: 15px;
-      font-weight: 600;
-      color: #FFFFFF;
-      background-color: var(--sfu-red);
-      border: 2px solid var(--sfu-red);
-      border-radius: 50px;
-      transition: var(--transition);
-    }
-    .btn-deadline:hover {
-      background-color: var(--sfu-dark-red);
-      border-color: var(--sfu-dark-red);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(204, 6, 51, 0.3);
-    }
-    .btn-deadline svg {
-      width: 20px;
-      height: 20px;
-    }
-    @keyframes pulse-border {
-      0% { box-shadow: 0 0 0 0 rgba(204, 6, 51, 0.4); }
-      70% { box-shadow: 0 0 0 10px rgba(204, 6, 51, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(204, 6, 51, 0); }
-    }
-    
-    .award-box {
-      background-color: #FFF0F0;
-      border-left: 4px solid var(--sfu-red);
-      padding: 16px;
-      border-radius: 8px;
-      margin-top: 16px;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      transition: var(--transition);
-    }
-    .award-box:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(204, 6, 51, 0.1);
-    }
-    .award-box.blue {
-      background-color: #F4F7FF;
-      border-left-color: #3B5B8A;
-    }
-    .award-box.blue:hover {
-      box-shadow: 0 4px 12px rgba(59, 91, 138, 0.1);
-    }
-    .award-box h4 {
-      color: var(--sfu-dark-red);
-      font-size: 15px;
-      margin-bottom: 4px;
-    }
-    .award-box.blue h4 {
-      color: #3B5B8A;
-    }
-    .award-box p {
-      margin-bottom: 0 !important;
-      font-size: 14px !important;
-      color: var(--text-muted) !important;
-    }
-    .award-icon {
-      font-size: 24px;
-      line-height: 1;
-    }
-    @media (max-width: 900px) {
-      .hero-buttons {
-        justify-content: center;
-      }
-      .btn-deadline {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-
-  </style>
+/* Optional: give video wrapper a consistent background */
+.video-wrapper {
+  background: #f0f4fa;
+  border-radius: 24px;
+  padding: 12px;
+}
+</style>
 </head>
 <body>
+<div class="document">
+  <div class="header">
+    <h1>SFU UJP XI Edition</h1>
+<h2>Open Journal Systems (OJS) Reviewer Guide</h2>
+    <div class="version">Version: 3.5 | Last Updated: 2026-06-06</div>
+  </div> <br><br>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container header-content">
-      <div class="brand-section">
-        <div class="logo-circle">UJP</div>
-        <div class="brand-text">
-          <h1>SFU Undergraduate Journal of Psychology</h1>
-          <p>Showcasing undergraduate research, meta-analyses, and critical essays.</p>
-        </div>
-      </div>
-      <nav>
-        <a href="#home" class="active">Home</a>
-        <a href="#authors">Authors</a>
-        <a href="#reviewers">Reviewers</a>
-        <a href="#issues">Issues</a>
-        <a href="#about">About</a>
-      </nav>
+
+  <div class="content">
+    <!-- SECTION 1 - unchanged -->
+    <div class="section-heading">1. Logging in to OJS</div>
+    <div class="purpose">Purpose: This procedure explains how users access OJS and create a new password.</div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">1</span> Open the Invitation Email</div>
+      <div class="img-container"><img src="step1.png" alt="Invitation email screenshot"></div>
+      <p>Open the email containing your OJS login information and temporary password.</p>
     </div>
-  </header>
 
-  <!-- HERO SECTION -->
-  <section id="home" class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <span class="hero-label">Call for Submissions · Issue XI</span>
-        <h2>Showcase your psychology research</h2>
-        <p>Submit original research, reviews, or essays to SFU's undergraduate journal of psychology.</p>
-        <div class="hero-buttons">
-          <a href="#authors" class="btn btn-primary">View Submission Guidelines</a>
-          <a href="#authors" class="btn-deadline">
-            <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            Deadline: May 11, 2026
-          </a>
-        </div>
-      </div>
+    <div class="step">
+      <div class="step-title"><span class="step-number">2</span> Select the Login Link</div>
+      <div class="img-container"><img src="step2.png" alt="Journal homepage with login link"></div>
+      <p>Click the OJS login hyperlink provided in the email.</p>
     </div>
-  </section>
 
-  <!-- FOR AUTHORS SECTION (With Download Buttons) -->
-  <section id="authors" class="section">
-    <div class="container">
-      <h2 class="section-title">For Authors</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Submission Requirements</h3>
-          <p>Please review our comprehensive guidelines before submitting your manuscript. All articles must adhere to APA 7th edition formatting and include the necessary forms.</p>
-          <ul class="doc-list">
-            <li>
-              <div class="doc-info">
-                <strong>Article Requirements Checklist</strong>
-                <span>Required checkpoints for Issue XI</span>
-              </div>
-              <a href="Article-Requirements.pdf" download class="btn-download">
-                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                Download
-              </a>
-            </li>
-            <li>
-              <div class="doc-info">
-                <strong>UJP Agreement Form</strong>
-                <span>Authorship and plagiarism policies</span>
-              </div>
-              <a href="Agreement-Form.pdf" download class="btn-download">
-                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                Download
-              </a>
-            </li>
-            <li>
-              <div class="doc-info">
-                <strong>AI Transparency Statement</strong>
-                <span>Disclosure of generative AI usage</span>
-              </div>
-              <a href="AI-Transparency.pdf" download class="btn-download">
-                <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                Download
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>How to Submit</h3>
-          <p>Once you have completed your manuscript and filled out the required Agreement Form and AI Transparency Statement, you are ready to submit.</p>
-          <p><strong>Deadline:</strong> May 11, 2026</p>
-          <p><strong>Eligibility:</strong> Original work written within the last three years during the author's undergraduate degree.</p>
-          <br>
-          <!-- Update this href to the exact SFU UJP OJS submissions URL -->
-          <a href="https://journals.lib.sfu.ca/index.php/ujp/about/submissions" class="btn btn-primary" style="width: 100%; text-align: center;" target="_blank" rel="noopener noreferrer">Submit</a>
-        </div>
-
-        <!-- WHY SUBMIT / WHY JOIN OUR TEAM -->
-        <div class="card">
-          <h3>Why Submit?</h3>
-          <div class="award-box">
-            <div class="award-icon">•</div>
-            <div>
-              <h4>Recognition and Funding</h4>
-              <p>The top submission for Issue XI will receive a $150 award in recognition of outstanding undergraduate scholarship.</p>
-            </div>
-          </div>
-          <div class="award-box" style="margin-top: 20px;">
-            <div class="award-icon">•</div>
-            <div>
-              <h4>Build Your Academic Profile</h4>
-              <p>Having your work published in the UJP counts as a peer-reviewed publication on your C.V. and showcases your research skills to graduate programs and employers.</p>
-            </div>
-          </div>
-          <div class="award-box" style="margin-top: 20px;">
-            <div class="award-icon">•</div>
-            <div>
-              <h4>Contribute to the Discipline</h4>
-              <p>Share your empirical research, meta-analyses, or critical essays with the broader psychology community and help advance undergraduate scholarship.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Why Join Our Team?</h3>
-          <div class="award-box blue">
-            <div class="award-icon">•</div>
-            <div>
-              <h4>Counts as Service</h4>
-              <p>Editorial and reviewer roles count as academic service on your C.V., demonstrating leadership and engagement with the psychology community.</p>
-            </div>
-          </div>
-          <div class="award-box blue" style="margin-top: 20px;">
-            <div class="award-icon">•</div>
-            <div>
-              <h4>Learn the Peer Review Process</h4>
-              <p>Gain hands-on experience with empirical review, evaluate manuscripts using clear criteria, and see how papers move from submission to publication.</p>
-            </div>
-          </div>
-          <div class="award-box blue" style="margin-top: 20px;">
-            <div class="award-icon">•</div>
-            <div>
-              <h4>Mentorship and Skill Development</h4>
-              <p>Work closely with a team of reviwers to strengthen your critical thinking and writing skills- helping you prepare for future roles in research, graduate school, and academia.</p> 
-            </div>
-  </section>
-
-  <!-- FOR REVIEWERS SECTION (Roles & Responsibilities embedded) -->
-  <section id="reviewers" class="section" style="background-color: #FFFFFF;">
-    <div class="container">
-      <h2 class="section-title">Editorial Board Roles & Responsibilities</h2>
-      <p style="max-width: 700px; margin-bottom: 30px; color: var(--text-muted);">
-        Join our team for Issue XI! We are recruiting undergraduate and graduate students to assist in the publication process.
-        Review the roles below and email <strong>sfuujp@sfu.ca</strong> with your CV and transcript to apply.
-      </p>
-
-      <!-- Accordion for Roles -->
-      <details>
-        <summary>Undergraduate Reviewers</summary>
-        <div class="details-content">
-          <p><em>Duties occur in June-July</em></p>
-          <ul>
-            <li>Evaluate submissions based on established criteria (originality, ethics, structure).</li>
-            <li>Provide constructive feedback to authors.</li>
-            <li>Meet with graduate reviewer to discuss process and create a plan (30-45 minutes).</li>
-            <li>Read and evaluate submission independently (~1 hour).</li>
-            <li>Discuss reviews with graduate partner prior to posting feedback (1-1.5 hours).</li>
-            <li>Write first draft of letter to author and collaborate on final letter (~2 hours).</li>
-          </ul>
-        </div>
-      </details>
-
-      <details>
-        <summary>Graduate Reviewers</summary>
-        <div class="details-content">
-          <p><em>Duties occur in June-July</em></p>
-          <ul>
-            <li>Conduct rigorous reviews of submissions in areas of expertise.</li>
-            <li>Mentor undergraduate reviewers on assigned papers.</li>
-            <li>Meet with undergraduate partner to discuss the review process (~1 hour).</li>
-            <li>Conduct independent review (~1-2 hours) and discuss with partner (1-1.5 hours).</li>
-            <li>Review and provide feedback to undergraduate's letter to the author.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details>
-        <summary>Editor and Copyeditors</summary>
-        <div class="details-content">
-          <p><em>Duties occur in August-Sept</em></p>
-          <ul>
-            <li>Edit and proofread accepted manuscripts for grammar, punctuation, style, and clarity.</li>
-            <li>Ensure adherence to APA formatting and journal guidelines.</li>
-            <li>Collaborate with authors to address editorial suggestions.</li>
-            <li>Maintain consistency and professionalism in the journal's writing style.</li>
-            <li>Approximately 1-1.5 hours of work per assigned paper.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details>
-        <summary>Administrative & Publishing Assistants</summary>
-        <div class="details-content">
-          <p><em>Duties occur February-September</em></p>
-          <ul>
-            <li><strong>Admin Assistant:</strong> Increase online presence, act as representative at events, support submission process, and liaise with authors/reviewers.</li>
-            <li><strong>Publishing Assistant:</strong> Handle logistics of publication, track deadlines, and engage with the audience post-publication.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details>
-        <summary>Managing Editors & Advisors</summary>
-        <div class="details-content">
-          <ul>
-            <li><strong>Managing Editors:</strong> Oversee operations, make final decisions on peer-review, manage budgeting, and collaborate to ensure timely publication.</li>
-            <li><strong>Graduate Advisor:</strong> Provide mentorship to graduate reviewers and facilitate communication between graduate/undergraduate teams.</li>
-            <li><strong>Faculty Advisor:</strong> Offer academic expertise, ensure alignment with academic standards, and assist in conflict resolution.</li>
-          </ul>
-        </div>
-      </details>
-
+    <div class="step">
+      <div class="step-title"><span class="step-number">3</span> Sign In</div>
+      <div class="img-container"><img src="step3.png" alt="Login page"></div>
+      <p>Enter your username and temporary password.</p>
+      <div class="tip">Expected Result: The password reset page opens.</div>
     </div>
-  </section>
 
-  <!-- ISSUES & ABOUT -->
-  <section id="issues" class="section">
-    <div class="container">
-      <div class="grid">
-        <div class="card">
-          <h3>Past Issues</h3>
-          <p>Access our complete archive of published undergraduate research, meta-analyses, and critical essays on the SFU Library's Open Journal Systems platform.</p>
-          <br>
-          <a href="https://journals.lib.sfu.ca/index.php/ujp/issue/archive" class="btn btn-primary" target="_blank">Browse Archive</a>
+    <div class="step">
+      <div class="step-title"><span class="step-number">4</span> Create a New Password</div>
+      <div class="img-container"><img src="step4.png" alt="Login credentials filled in"></div>
+      <p>Enter your current password and create a new password.</p>
+      <div class="note">Note: Passwords must be at least 14 characters long.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">5</span> Save Changes</div>
+      <div class="img-container"><img src="step5.png" alt="Change password OK button"></div>
+      <p>Select <strong>OK</strong> to complete the setup process.</p>
+    </div>
+
+    <hr>
+
+    <!-- SECTION 2 - completely rewritten based on step6.png to step14.png -->
+    <div class="section-heading">2. Accepting and Completing a Review Assignment</div>
+    <div class="purpose">Purpose: How reviewers accept a manuscript request, download the submission, and submit their review.</div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">1</span> Open the Review Request Email</div>
+      <div class="img-container"><img src="step6.png" alt="Email review request"></div>
+      <p>Open the email from the journal editor asking you to review a manuscript. Note the response due date and review due date.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">2</span> Access the Submission Link</div>
+      <div class="img-container"><img src="step7.png" alt="Email with submission URL"></div>
+      <p>Scroll to the bottom of the email and click the submission link (or copy/paste the URL) to open the OJS review page.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">3</span> Review Request Details</div>
+      <div class="img-container"><img src="step8.png" alt="Request for review page"></div>
+      <p>Read the article title, abstract, and review schedule. Ensure there is no conflict of interest.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">4</span> Accept the Review Assignment</div>
+      <div class="img-container"><img src="step9.png" alt="Accept Review button"></div>
+      <p>Click the <strong>Accept Review, Continue to Step #2</strong> button to indicate you will complete the review.</p>
+      <div class="tip">Expected Result: The review workflow advances to the Guidelines step.</div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">5</span> Review the Reviewer Guidelines</div>
+      <div class="img-container"><img src="step10.png" alt="Reviewer guidelines page"></div>
+      <p>Read the formatting requirements, conflict of interest policy, and other instructions carefully before proceeding.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">6</span> Download the Manuscript</div>
+      <div class="img-container"><img src="step11.png" alt="Download & review section"></div>
+      <p>Navigate to the <strong>Download & Review</strong> section. Click the hyperlink (e.g., <em>ASD & Empathy.docx</em>) to download the manuscript file.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">7</span> Complete the Review Form</div>
+      <div class="img-container"><img src="step12.png" alt="Rating and feedback form"></div>
+      <p>Collaborating with your co-reviewer, rate the manuscript on writing style, originality, and quality of thesis argument. Work together to construct a detailed final assessment (300‑600 words) with constructive feedback for the author. Only <i> one </i> detailed assessment is required per pair of reviewers but both reviewers must participate.<br><br>
+<b>Undergraduate Reviewer: </b> Please write "Detailed Assessment Submitted as Reviewer Pair" and paste your detailed final assessment in the text box. <br><br>
+<b>Graduate Reviewer:</b> Please include any addtional comments you may wish to provide. Otherwise, please write "Detailed Assessment Submitted as Reviewer Pair- Please see second Review."  </p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">8</span> Upload Files (if required)</div>
+      <div class="img-container"><img src="step13.png" alt="Upload section and recommendation dropdown"></div>
+      <p>If you have annotated files or additional documents, upload them in the <strong>Reviewer Files</strong> area. Then scroll to the <strong>Recommendation</strong> section.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-number">9</span> Submit Recommendation</div>
+      <div class="img-container"><img src="step14.png" alt="Recommendation options and submit button"></div>
+      <p>Select a recommendation (e.g., Accept Submission, Revisions Required, etc.) and click <strong>Submit Review</strong>.</p>
+      <div class="tip">Expected Result: The review is successfully submitted to the editorial team.</div>
+    </div>
+
+    <!-- SECTION 4: TWO VIDEOS – properly scaled, no zoom -->
+    <div class="video-showcase" id="video-resources">
+      <div class="video-heading"> <h1> <b>Detailed Video Walkthroughs </h1><b/></div><br>
+      <div class="purpose">Step-by-step video tutorials to guide you through the OJS review workflow.</div><br>
+
+      <div class="video-grid">
+        <!-- Video 1: Accepting review -->
+  <h4> Video 1: Getting Started on Open Journal Systems (OJS): Reviewer </h4>
+        <div class="video-card">
+          <div class="video-wrapper">
+            <video controls preload="metadata">
+              <source src="reviewer_accept_tutorial.mp4" type="video/mp4">
+              Your browser does not support the video tag. Please use a modern browser.
+            </video>
+          </div> <br><br>
+          <div class="video-caption">
+            <h4> Video 2: Accepting a Reviewer Request & Submitting Your Review</h4>
+    
+          </div>
         </div>
-        <div class="card" id="about">
-          <h3>Contact Us</h3>
-          <p>The UJP is an annual publication that allows students to share research with the broader academic community. We are fully student-run with support from the SFU Department of Psychology.</p>
-          <br>
-          <p><strong>Email:</strong> <a href="mailto:sfuujp@sfu.ca" style="color: var(--sfu-red); font-weight: 600;">sfuujp@sfu.ca</a></p>
-          <p><strong>Social:</strong> <a href="https://www.instagram.com/sfuujp/" target="_blank" style="color: var(--sfu-red); font-weight: 600;">@sfuujp</a></p>
+
+        <!-- Video 2: Submitting the review -->
+        <div class="video-card">
+          <div class="video-wrapper">
+            <video controls preload="metadata">
+              <source src="reviewer_submission_guide.mp4" type="video/mp4">
+              Your browser does not support the video tag. Please use a modern browser.
+            </video>
+          </div>
+          <div class="video-caption">
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <h3>SFU Undergraduate Journal of Psychology</h3>
-      <p class="footer-text">&copy; 2026 Department of Psychology, Simon Fraser University.</p>
-      <p class="footer-text">Burnaby, British Columbia, Canada.</p>
+    <!-- Footer -->
+    <div class="footer-note"><br>
+      <span>© Simon Fraser University: Undergraduate Journal of Psychology (SFU UJP) XI Edition </span>
+ 
     </div>
-  </footer>
-
-  <script>
-    // Simple script to handle smooth scrolling and active nav states
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        if(this.getAttribute('href').startsWith('#')) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-          });
-          
-          document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-          this.classList.add('active');
-        }
-      });
-    });
-  </script>
+  </div>
+</div>
 </body>
 </html>
